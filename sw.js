@@ -1,10 +1,20 @@
-let urlsToCache = ["/", "/index.html"];
+let urlsToCache = [
+    "/",
+    "/index.html",
+    "/scripts",
+    "/stylesheets",
+    "/images",
+    "/scripts/script.js",
+    "/scripts/functions.js",
+    "/scripts/pwa-handler.js",
+    "/stylesheets/style.css",
+    "/images/download.svg",
+    "/images/favicon.png",
+    "/images/maskable.png",
+    "/images/title.png",
+];
 
-self.addEventListener("install", (event) => 
-    event.waitUntil(caches.open("cache").then((cache) => 
-        cache.addAll(urlsToCache)
-    ))
-);
+self.addEventListener("install", (event) => event.waitUntil(caches.open("cache").then((cache) => cache.addAll(urlsToCache))));
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(

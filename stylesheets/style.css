@@ -55,6 +55,10 @@ h3 {
     font-size: x-large;
 }
 
+.err {
+    display: none;
+}
+
 form {
     margin-top: 2vh;
     height: 65vh;

@@ -9,12 +9,15 @@ const charsAllowed = {
 };
 
 let nss = ["bin", "oct", "dec", "hex"];
+
 nss.forEach((ns) => {
     let g = ns + "Input";
     nsInp[g] = document.getElementById(ns);
     errf[ns] = document.getElementById(ns + "-err");
     let ninp = nsInp[g];
     ninp.value = "0";
+
+    errf[ns].setAttribute('hidden', "")
 
     ninp.oninput = (e) => {
         if (ninp.value === "" || ninp.value === "0") {
@@ -29,9 +32,9 @@ nss.forEach((ns) => {
         let l = e.target.selectionStart;
         Array.from(ninp.value).forEach((i) => {
             if (!charsAllowed[ns].includes(i)) {
-                errf[ninp.id].removeAttribute("hidden");
+                errf[ninp.id].toggleAttribute("hidden");
                 setTimeout(() => {
-                    errf[ninp.id].setAttribute("hidden", "");
+                    errf[ninp.id].toggleAttribute("hidden");
                 }, 1500);
                 ninp.value = ninp.value.split(i).join("");
                 e.target.setSelectionRange(l - 1, l - 1);
@@ -44,6 +47,7 @@ nss.forEach((ns) => {
         update(ninp.value, ninp.id);
     };
 });
+
 
 function update(num, b) {
     rem(nss, b).forEach((r) => {
@@ -60,8 +64,9 @@ function rem(arr, item) {
 }
 
 function removeLeadingZeros(number) {
-    if (number.startsWith("0") && number.length > 1) {
-        return removeLeadingZeros(number.slice(1));
+    let stringedNumber = number.toString()
+    if (stringedNumber.toString().startsWith("0") && stringedNumber.length > 1) {
+        return removeLeadingZeros(stringedNumber.slice(1));
     }
-    return number;
+    return stringedNumber;
 }
