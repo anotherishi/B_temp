@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: monospace;
     color: azure;
+    font-size: xx-large;
 }
 
 body {
@@ -26,7 +27,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 3vh;
-    box-shadow:  0 0 40px 0  #dfdfdf42;
+    box-shadow: 0 0 40px 0 #dfdfdf42;
 }
 
 #title {
@@ -44,28 +45,39 @@ body {
     margin-right: 5vw;
     height: 8vh;
     width: 8vh;
-    box-shadow:  0 0 10px 5px  #dfdfdf42;
+    box-shadow: 0 0 10px 5px #dfdfdf42;
 }
 
 h3 {
     margin: 4vh 3vw 0 3vw;
-    font-size: large;
     text-align: center;
     color: #ffe6eb;
+    font-size: x-large;
 }
 
 form {
     margin-top: 2vh;
     height: 65vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
 }
 
+.ns-input {
+    margin: 1vh 2vw;
+    width: 90%;
+}
 input {
-    background-color: #ff78b015;
+    width: 80%;
+    background-color: #ff78b009;
     outline: none;
     border-width: 0;
-    margin: 0 .7vw;
+    margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    form {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
 }
