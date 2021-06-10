@@ -1,27 +1,15 @@
-let urlsToCache = [
-    "/",
-    "/index.html",
-    "/script.js", 
-    "/pwa-handler.js",
-    "/style.css"
-];
+let urlsToCache = ["/", "/index.html"];
 
-self.addEventListener("install", (event) => {
-    event.waitUntil(
-        caches.open('cache').then((cache) => {
-            console.log("Caching started.");
-            return cache.addAll(urlsToCache);
-        })
-    );
-});
+self.addEventListener("install", (event) => 
+    event.waitUntil(caches.open("cache").then((cache) => 
+        cache.addAll(urlsToCache)
+    ))
+);
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
-            if (response) {
-                return response;
-            }
-            return fetch(event.request);
+            return response ? response : fetch(event.request);
         })
     );
 });

@@ -1,72 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BaseX - Number System Converter</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="manifest.json" />
-    <script>
-      if (location.protocol != "https:") location.protocol = "https";
-    </script>
-  </head>
-  <body>
-    <div id="header">
-      <h1>BaseX</h1>
-      <h3>Converts numbers to different number systems.</h3>
-    </div>
-    <button id="install" hidden>install app</button>
-    <!--     <form>
-      <fieldset>
-        <legend>Binary</legend>
-        <input type="text" id="bin" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BaseX: Number System Converter</title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="manifest" href="manifest.json" />
+        <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+        <script>
+            // if (location.protocol != "https:") location.protocol = "https";
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <img id="title" src="/images/title.png" ondragstart="return false;" />
+            <img src="/images/download.svg" alt="Install App" id="install" ondragstart="return false;" hidden />
+        </div>
+        <h3>Convert numbers to different Number Systems</h3>
+
         <div id="bin-err" hidden>Only 0, 1 allowed!!</div>
-      </fieldset>
-      <fieldset>
-        <legend>Octal</legend>
-        <input type="text" id="oct" />
         <div id="oct-err" hidden>Only 0-7 allowed!!</div>
-      </fieldset>
-      <fieldset>
-        <legend>Decimal</legend>
-        <input type="text" id="dec" />
         <div id="dec-err" hidden>Only 0-9 allowed!!</div>
-      </fieldset>
-      <fieldset>
-        <legend>Hexadecimal</legend>
-        <input type="text" id="hex" />
         <div id="hex-err" hidden>Only 0-9, a-f allowed!!</div>
-      </fieldset>
-    </form> -->
+        
+        <form autocomplete="off">
+            <div class="ns-input">
+                <span class="input-wrapper">(</span>
+                <input type="text" id="bin" />
+                <span class="input-wrapper">)<sub>2</sub></span>
+            </div>
+            <div class="ns-input">
+                <span class="input-wrapper">(</span>
+                <input type="text" id="oct" />
+                <span class="input-wrapper">)<sub>8</sub></span>
+            </div>
+            <div class="ns-input">
+                <span class="input-wrapper">(</span>
+                <input type="text" id="dec" />
+                <span class="input-wrapper">)<sub>10</sub></span>
+            </div>
+            <div class="ns-input">
+                <span class="input-wrapper">(</span>
+                <input type="text" id="hex" />
+                <span class="input-wrapper">)<sub>16</sub></span>
+            </div>
+        </form>
 
-    <form>
-      <!--       <fieldset>
-        <legend>Binary</legend> -->
-      (<input type="text" id="bin" />)<sub>2</sub>
-      <div id="bin-err" hidden>Only 0, 1 allowed!!</div>
-      <br>
-      <!--       </fieldset>
-      <fieldset>
-        <legend>Octal</legend> -->
-      (<input type="text" id="oct" />)<sub>8</sub>
-      <div id="oct-err" hidden>Only 0-7 allowed!!</div>
-      <br>
-      <!--       </fieldset>
-      <fieldset>
-        <legend>Decimal</legend> -->
-      (<input type="text" id="dec" />)<sub>10</sub>
-      <div id="dec-err" hidden>Only 0-9 allowed!!</div>
-      <br>
-      <!--       </fieldset>
-      <fieldset>
-        <legend>Hexadecimal</legend> -->
-      (<input type="text" id="hex" />)<sub>16</sub>
-      <div id="hex-err" hidden>Only 0-9, a-f allowed!!</div>
-      <br>
-      <!--       </fieldset> -->
-    </form>
-
-    <script src="functions.js"></script>
-    <script src="script.js"></script>
-  </body>
+        <script src="/scripts/pwa-handler.js"></script>
+        <script src="/scripts/functions.js"></script>
+        <script src="/scripts/script.js"></script>
+    </body>
 </html>
