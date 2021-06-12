@@ -1,14 +1,23 @@
 {
-    "name": "Numverter",
+    "short_name": "BaseX",
+    "name": "BaseX",
+    "description": "Number System Converter",
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#0d085c",
+    "background_color": "#0d08fc",
+    "orientation": "portrait-primary",
     "icons": [
         {
-            "src": ",
+            "src": "/images/maskable.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "any maskable"
+            "purpose": "maskable"
+        },
+        {
+            "src": "/images/favicon.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
     ]
 }
