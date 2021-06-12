@@ -146,7 +146,8 @@ let hexKeys2 = {
 };
 
 window.hex = {
-    dec: (num) => {
+    dec: (n) => {
+      num=n.toLowerCase()
         h = num.length;
         s = 0;
         for (let i = 0; i < h; i++) {
@@ -156,7 +157,8 @@ window.hex = {
         return s.toString();
     },
     oct: (num) => dec.oct(hex.dec(num)),
-    bin: (num) => {
+    bin: (n) => {
+      num=n.toLowerCase()
         s = "";
         Array.from(num).forEach((d) => {
             s += padder(dec.bin(Object.keys(hexKeys2).includes(d) ? hexKeys2[d] : d), 4);
