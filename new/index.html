@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./stylesheets/main.css" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <title>BaseX</title>
+    </head>
+    <body>
+        <div id="err"></div>
+        <div id="expl"></div>
+        <header>
+            <h1>Base<sub>X</sub></h1>
+            <div id="menu">
+                <!-- <div id="menu-btn">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div> -->
+                <div id="mbt">
+                    <img src="./images/menu.png" />
+                </div>
+                <div id="menu-area"></div>
+            </div>
+        </header>
+        <form autocomplete="off">
+            <div class="block">
+                <div class="info">
+                    <div class="ns">Binary</div>
+                    <div class="op">
+                        <img class="copy" src="./images/copy.png" />
+                        <img src="./images/explaination.png" class="exp" />
+                    </div>
+                </div>
+                <div class="input">
+                    <input id="bin-input" type="text" />
+                </div>
+            </div>
+            <div class="block">
+                <div class="info">
+                    <div class="ns">Octal</div>
+                    <div class="op">
+                        <img class="copy" src="./images/copy.png" />
+                        <img src="./images/explaination.png" class="exp" />
+                    </div>
+                </div>
+                <div class="input">
+                    <input id="oct-input" type="text" />
+                </div>
+            </div>
+            <div class="block">
+                <div class="info">
+                    <div class="ns">Decimal</div>
+                    <div class="op">
+                        <img class="copy" src="./images/copy.png" />
+                        <img src="./images/explaination.png" class="exp" />
+                    </div>
+                </div>
+                <div class="input">
+                    <input id="dec-input" type="text" />
+                </div>
+            </div>
+            <div class="block">
+                <div class="info">
+                    <div class="ns">HexaDecimal</div>
+                    <div class="op">
+                        <img class="copy" src="./images/copy.png" />
+                        <img src="./images/explaination.png" class="exp" />
+                    </div>
+                </div>
+                <div class="input">
+                    <input id="hex-input" type="text" />
+                </div>
+            </div>
+        </form>
+
+        <script src="./scripts/script.js"></script>
+        <script>
+            // var rn = Math.floor(Math.random() * 150 + 60);
+            var rn = 80;
+            var rs = Math.floor(Math.random() * 11 + 2); // 11+4 original
+            var t = new Trianglify({
+                // x_gradient: Trianglify.colorbrewer.Spectral[rs],
+                // y_gradient: Trianglify.colorbrewer.Spectral[rs],
+                x_gradient: Trianglify.colorbrewer.Spectral[10],
+                noiseIntensity: 0,
+                cellsize: rn,
+            });
+            // var pattern = t.generate(window.innerWidth, window.innerWidth+200);
+
+            var pattern = t.generate(window.innerWidth, window.innerHeight);
+            document.documentElement.style.backgroundImage =
+                document.getElementsByTagName(
+                    "header"
+                )[0].style.backgroundImage = pattern.dataUrl;
+
+            function updatebg(n) {
+                document.documentElement.style.backgroundImage =
+                    document.getElementsByTagName(
+                        "header"
+                    )[0].style.backgroundImage = new Trianglify({
+                        x_gradient: Trianglify.colorbrewer.Spectral[n],
+                        noiseIntensity: 0,
+                        cellsize: 80,
+                    }).generate(window.innerWidth, window.innerHeight).dataUrl;
+            }
+        </script>
+    </body>
+</html>
+
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/catalin-fertu" title="Catalin Fertu">Catalin Fertu</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/dmitri13" title="dmitri13">dmitri13</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+<!-- background: https://codepen.io/nodws/pen/YPgZao -->

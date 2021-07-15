@@ -1,8 +1,3 @@
-@font-face {
-    font-family: Monoton;
-    src: url(Monoton.ttf) format("truetype");
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +15,7 @@ body {
     justify-content: space-evenly;
 }
 
-#header {
+header {
     width: 100%;
     height: 14.5%;
     display: flex;
@@ -46,6 +41,31 @@ body {
     height: 8vh;
     width: 8vh;
     box-shadow: 0 0 10px 5px #dfdfdf42;
+    position: relative;
+}
+#dl-info{
+    position: absolute;
+    font-size: medium;
+    width: max-content;
+    transform: translateX(-52%);
+    border: .3vh dashed #7eff9f;
+    background-color: #002e49;
+    padding: 1vh 2vw;
+    border-radius: 1vh;
+}
+
+#dl-info::before {
+    position: absolute;
+    content: '';
+    width: 2vh;
+    height: 2vh;
+    transform: rotate(45deg);
+    background-color: #002e49;
+    border-top: .3vh dashed #7eff9f;
+    border-left: .3vh dashed #7eff9f;
+    left: 65%;
+    top: -1.5vh;
+    z-index: 5;
 }
 
 h3 {
@@ -67,16 +87,23 @@ form {
     grid-template-columns: 1fr;
 }
 
-.ns-input {
+.input {
     margin: 1vh 2vw;
     width: 90%;
 }
+
 input {
     width: 80%;
     background-color: #ff78b009;
     outline: none;
     border-width: 0;
     margin: 0;
+}
+
+@keyframes fadeout {
+    100% {
+        opacity: 0;
+    }
 }
 
 @media only screen and (min-width: 768px) {

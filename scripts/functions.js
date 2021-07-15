@@ -273,3 +273,8 @@ function splitter(num, n) {
 //         }
 //     return num
 // }
+
+function destroy(element) {
+    element.remove();
+    delete element;
+}

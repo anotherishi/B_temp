@@ -17,7 +17,7 @@ nss.forEach((ns) => {
     let ninp = nsInp[g];
     ninp.value = "0";
 
-    errf[ns].setAttribute('hidden', "")
+    errf[ns].setAttribute("hidden", "");
 
     ninp.oninput = (e) => {
         if (ninp.value === "" || ninp.value === "0") {
@@ -49,6 +49,7 @@ nss.forEach((ns) => {
 });
 
 
+
 function update(num, b) {
     rem(nss, b).forEach((r) => {
         nsInp[r + "Input"].value = removeLeadingZeros(window[b][r](num));
@@ -64,7 +65,7 @@ function rem(arr, item) {
 }
 
 function removeLeadingZeros(number) {
-    let stringedNumber = number.toString()
+    let stringedNumber = number.toString();
     if (stringedNumber.toString().startsWith("0") && stringedNumber.length > 1) {
         return removeLeadingZeros(stringedNumber.slice(1));
     }

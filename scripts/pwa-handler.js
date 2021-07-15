@@ -1,24 +1,34 @@
 const serviceWorker = navigator.serviceWorker;
 
 if (serviceWorker) {
-    serviceWorker.register("/sw.js");
-}
+    serviceWorker.register("/service-worker.js");
+    let beforeInstallEvent;
+    const installButton = document.getElementById("install"), 
+    dl = document.getElementById("dl-info");
 
-let beforeInstallEvent;
-
-const installButton = document.getElementById("install");
-
-window.addEventListener('beforeinstallprompt' , (event) => {
-    console.log("hg");
-    event.preventDefault();
-    beforeInstallEvent = event;
-    installButton.removeAttribute('hidden');
-})
-
-installButton.onclick = () => {
-    beforeInstallEvent.prompt().then((choice) => {
-        if (choice.outcome === "accepted") {
-            installButton.style.display = "none";
-        }
+    window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        beforeInstallEvent = event;
+        installButton.removeAttribute("hidden");
+        dl.removeAttribute("hidden");
+        document.body.onload = () => {
+            setTimeout(() => {
+                document.onclick = () => {
+                    dl.style.animation = "fadeout 2s linear forwards";
+                    dl.onanimationend = () => {
+                        destroy(dl);
+                    };
+                };
+            }, 10000);
+        };
     });
-};
+
+    installButton.onclick = () => {
+        beforeInstallEvent.prompt().then((choice) => {
+            if (choice.outcome === "accepted") {
+                destroy(installButton)
+                destroy(dl)
+            }
+        });
+    };
+}

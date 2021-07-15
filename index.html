@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BaseX: Number System Converter</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Number System Converter | Bin-Oct-Dec-Hex; Convert numbers from and to Binary, Octal, Decimal, Hexadecimal number systems">
+        <title>BaseX: Number System Converter | Convert numbers from and to Binary, Octal, Decimal, Hexadecimal</title>
         <link rel="stylesheet" href="/stylesheets/style.css" />
         <link rel="manifest" href="manifest.json" />
         <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
@@ -12,34 +14,39 @@
         </script>
     </head>
     <body>
-        <div id="header">
-            <img id="title" src="/images/title.png" ondragstart="return false;" />
-            <img src="/images/download.svg" alt="Install App" id="install" ondragstart="return false;" hidden />
-        </div>
+        <header>
+            <img src="/images/title.png" alt="BaseX logo" id="title" ondragstart="return false;" />
+            <section>
+                <img src="/images/download.svg" alt="Install App" id="install" ondragstart="return false;" hidden />
+                <div id="dl-info" hidden>Install the App!</div>
+            </section>
+            
+        </header>
         <h3>Convert numbers to different Number Systems</h3>
 
-        <div class="err" id="bin-err">Only 0, 1 allowed in Binary!!</div>
-        <div class="err" id="oct-err">Only 0-7 allowed in Octal!!</div>
-        <div class="err" id="dec-err">Only 0-9 allowed in Decimal!!</div>
-        <div class="err" id="hex-err">Only 0-9, a-f allowed in Hexadecimal!!</div>
+        <section class="err" id="bin-err">Only 0, 1 allowed in Binary!!</section>
+        <section class="err" id="oct-err">Only 0-7 allowed in Octal!!</section>
+        <section class="err" id="dec-err">Only 0-9 allowed in Decimal!!</section>
+        <section class="err" id="hex-err">Only 0-9, a-f allowed in Hexadecimal!!</section>
         
         <form autocomplete="off">
-            <div class="ns-input">
+            <section class="input">
                 <span class="input-wrapper">(</span><input type="text" id="bin" /><span class="input-wrapper">)<sub>2</sub></span>
-            </div>
-            <div class="ns-input">
+            </section>
+            <section class="input">
                 <span class="input-wrapper">(</span><input type="text" id="oct" /><span class="input-wrapper">)<sub>8</sub></span>
-            </div>
-            <div class="ns-input">
+            </section>
+            <section class="input">
                 <span class="input-wrapper">(</span><input type="text" id="dec" /><span class="input-wrapper">)<sub>10</sub></span>
-            </div>
-            <div class="ns-input">
+            </section>
+            <section class="input">
                 <span class="input-wrapper">(</span><input type="text" id="hex" /><span class="input-wrapper">)<sub>16</sub></span>
-            </div>
+            </section>
         </form>
 
         <script src="/scripts/pwa-handler.js"></script>
         <script src="/scripts/functions.js"></script>
         <script src="/scripts/script.js"></script>
+        <script src="/scripts/test.js"></script>
     </body>
 </html>
