@@ -4,23 +4,28 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="data:" type="image/x-icon">
+
         <link rel="stylesheet" href="./stylesheets/main.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/3.0.0/trianglify.min.js" integrity="sha512-rjQcHsP3OLGWVRNiLLBeupOT+luccTXECmZvxA4jc9uZfBr/qkML4uTGqQbypT3YZ5psW9C/SQUolxFjx6mxwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js" integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
         <title>BaseX</title>
     </head>
     <body>
         <div id="err"></div>
-        <div id="expl"></div>
+        <!-- <div id="expl-overlay">
+            <div id="expl">
+                <div id="expl-title"></div>
+            <div id="expl-content"></div>
+            </div>
+        </div> -->
+
         <header>
             <h1>Base<sub>X</sub></h1>
             <div id="menu">
-                <!-- <div id="menu-btn">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div> -->
                 <div id="mbt">
                     <img src="./images/menu.png" />
                 </div>
@@ -79,36 +84,8 @@
         </form>
 
         <script src="./scripts/script.js"></script>
-        <script>
-            // var rn = Math.floor(Math.random() * 150 + 60);
-            var rn = 80;
-            var rs = Math.floor(Math.random() * 11 + 2); // 11+4 original
-            var t = new Trianglify({
-                // x_gradient: Trianglify.colorbrewer.Spectral[rs],
-                // y_gradient: Trianglify.colorbrewer.Spectral[rs],
-                x_gradient: Trianglify.colorbrewer.Spectral[10],
-                noiseIntensity: 0,
-                cellsize: rn,
-            });
-            // var pattern = t.generate(window.innerWidth, window.innerWidth+200);
-
-            var pattern = t.generate(window.innerWidth, window.innerHeight);
-            document.documentElement.style.backgroundImage =
-                document.getElementsByTagName(
-                    "header"
-                )[0].style.backgroundImage = pattern.dataUrl;
-
-            function updatebg(n) {
-                document.documentElement.style.backgroundImage =
-                    document.getElementsByTagName(
-                        "header"
-                    )[0].style.backgroundImage = new Trianglify({
-                        x_gradient: Trianglify.colorbrewer.Spectral[n],
-                        noiseIntensity: 0,
-                        cellsize: 80,
-                    }).generate(window.innerWidth, window.innerHeight).dataUrl;
-            }
-        </script>
+        <script src="./scripts/func.js"></script>
+        <script src="./scripts/bg.js"></script>
     </body>
 </html>
 

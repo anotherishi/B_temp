@@ -56,17 +56,24 @@ html {
     background-color: azure;
 }
 
+#expl-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: grid;
+    place-items: center;
+}
+
 #expl {
     width: 70vw;
-    height: 70vh;
-    position: absolute;
-    top: 15vh;
-    right: 15vw;
+    height: 80vh;
     background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 header {
@@ -77,7 +84,8 @@ header {
     align-items: center;
     justify-content: space-between;
     justify-self: flex-start;
-    box-shadow: #0000001f 0px 10px 20px;
+    box-shadow: #00000059 0px 10px 20px;
+    /* background-color: #0000003d; */
 }
 header > h1 {
     font-size: xx-large;
@@ -133,6 +141,7 @@ form {
     align-items: center;
     justify-content: space-evenly;
     grid-template-columns: 1fr;
+    
 }
 
 .block {
@@ -188,4 +197,15 @@ input {
         grid-template-columns: 1fr 1fr;
         column-gap: 4vw;
     }
+}
+
+
+
+.rem-table {
+    display: flex;
+}
+.rem-table-b {
+    display: flex;
+    flex-direction: column;
+    border-bottom: .2vh solid;
 }
